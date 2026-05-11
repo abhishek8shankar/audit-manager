@@ -1,4 +1,4 @@
-CREATE DATABASE mosip_audit 
+CREATE DATABASE :mosipdbname
 	ENCODING = 'UTF8' 
 	LC_COLLATE = 'en_US.UTF-8' 
 	LC_CTYPE = 'en_US.UTF-8' 
@@ -6,12 +6,12 @@ CREATE DATABASE mosip_audit
 	OWNER = postgres
 	TEMPLATE  = template0;
 
-COMMENT ON DATABASE mosip_audit IS 'Audit related logs and the data is stored in this database';
+COMMENT ON DATABASE :mosipdbname IS 'Audit related logs and the data is stored in this database';
 
-\c mosip_audit postgres
+\c :mosipdbname postgres
 
 DROP SCHEMA IF EXISTS audit CASCADE;
 CREATE SCHEMA audit;
 ALTER SCHEMA audit OWNER TO postgres;
-ALTER DATABASE mosip_audit SET search_path TO audit,pg_catalog,public;
+ALTER DATABASE :mosipdbname SET search_path TO audit,pg_catalog,public;
 

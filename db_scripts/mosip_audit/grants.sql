@@ -1,17 +1,17 @@
-\c mosip_audit 
+\c :mosipdbname
 
 GRANT CONNECT
-   ON DATABASE mosip_audit
+   ON DATABASE :mosipdbname
    TO audituser;
 
 GRANT USAGE
    ON SCHEMA audit
-   TO audituser;
+   TO :dbuname;
 
 GRANT SELECT,INSERT,UPDATE,DELETE,TRUNCATE,REFERENCES
    ON ALL TABLES IN SCHEMA audit
-   TO audituser;
+   TO :dbuname;
 
 ALTER DEFAULT PRIVILEGES IN SCHEMA audit 
-	GRANT SELECT,INSERT,UPDATE,DELETE,REFERENCES ON TABLES TO audituser;
+	GRANT SELECT,INSERT,UPDATE,DELETE,REFERENCES ON TABLES TO :dbuname;
 
